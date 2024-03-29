@@ -6,6 +6,9 @@ import { blogService } from "../../services/blogService";
 const AddNewBlog = () => {
   const { formData, setFormData } = useGlobalState();
 
+  /**
+   * Méthode qui fait appelle au blogService pour enregistré un nouveau blog en base de donnée 
+   */
   const handleSaveBlogToDatabase = async() =>{
     blogService.saveNewBlog(formData)
   }

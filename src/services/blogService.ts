@@ -1,6 +1,11 @@
 import { FormDataType } from "../context";
 
 class BlogService {
+  /**
+   * Permet d'enregistrer un nouveau blog en base de donnée
+   * @param newBlog Le nouveau blog à enregistré
+   * @returns 
+   */
   async saveNewBlog(newBlog: FormDataType) {
     return await fetch("http://localhost:5000/api/blogs/add", {
       method: "POST",
