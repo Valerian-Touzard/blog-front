@@ -6,9 +6,9 @@ type GlobalContextType = {
   setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 };
 
-type FormDataType = {
+export type FormDataType = {
   title: string;
-  descrition: string;
+  description: string;
 };
 
 export const GlobalContext = createContext<GlobalContextType | undefined>(
@@ -18,7 +18,7 @@ export const GlobalContext = createContext<GlobalContextType | undefined>(
 export const GlobalState = ({ children }: React.PropsWithChildren) => {
   const [formData, setFormData] = useState<FormDataType>({
     title: "",
-    descrition: "",
+    description: "",
   });
 
   return (

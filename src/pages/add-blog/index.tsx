@@ -1,9 +1,14 @@
 import React from "react";
 import classes from "./styles.module.css";
 import { useGlobalState } from "../../context";
+import { blogService } from "../../services/blogService";
 
 const AddNewBlog = () => {
   const { formData, setFormData } = useGlobalState();
+
+  const handleSaveBlogToDatabase = async() =>{
+    blogService.saveNewBlog(formData)
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -19,14 +24,14 @@ const AddNewBlog = () => {
         />
         <textarea
           onChange={(e) =>
-            setFormData({ ...formData, descrition: e.target.value })
+            setFormData({ ...formData, description: e.target.value })
           }
           id="description"
           name="description"
-          value={formData.descrition}
+          value={formData.description}
           placeholder="Enter Blog Description"
         />
-        <button>Add new Blog</button>
+        <button onClick={handleSaveBlogToDatabase}>Add new Blog</button>
       </div>
     </div>
   );
